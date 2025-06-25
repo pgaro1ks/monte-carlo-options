@@ -3,7 +3,10 @@
 #include <iomanip>
 #include <vector>
 #include <thread>
-#include "option_pricing.hpp"
+
+#include "black_scholes.cpp"
+#include "monte_carlo.cpp"
+#include "greeks.cpp"
 
 using namespace options;
 
@@ -13,7 +16,7 @@ void benchmarkBlackScholes() {
     auto start = std::chrono::high_resolution_clock::now();
     
     for (int i = 0; i < 100000; ++i) {
-        blackScholesPrice(params);
+        price(params);
     }
     
     auto end = std::chrono::high_resolution_clock::now();
